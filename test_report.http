@@ -1,0 +1,37 @@
+GET http://localhost:3000/reports HTTP/1.1
+
+###
+
+GET http://localhost:3000/reports/actives HTTP/1.1
+
+###
+
+GET http://localhost:3000/reports/2 HTTP/1.1
+
+###
+
+POST http://localhost:3000/reports HTTP/1.1
+content-type: application/json
+
+{
+    "reporter": "teste01@gmail.com",
+    "latitude": "-29.87602011591445",
+    "longitude": "-50.07353095201738",
+    "report_type": 1,
+    "confirmed": 1,
+    "active": 0
+}
+
+###
+
+POST http://localhost:3000/reports HTTP/1.1
+content-type: application/json
+
+{
+    "reporter": "teste02@gmail.com",
+    "latitude": "-29.886352516378878",
+    "longitude": "-50.077695934766936",
+    "report_type": 1,
+    "confirmed": 1,
+    "active": 0
+}

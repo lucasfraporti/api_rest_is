@@ -3,12 +3,9 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
-// Importação das rotas
 const rotaReports = require('./routes/report');
 
-// Geração dos logs no console
 app.use(morgan('dev'));
-
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
@@ -27,14 +24,12 @@ app.use((req, res, next) => {
 
 app.use('/reports', rotaReports);
 
-// Tratamento para quando não encontrar nenhuma rota
 app.use((req, res, next) => {
     const erro = new Error('Não encontrado!');
     erro.status = 404;
     next(erro);
 });
 
-// Tratamento para quando não encontrar nenhuma rota e não entrar no tratamento de erro acima
 app.use((error, req, res, next) => {
     res.status(error.status || 500);
     return res.send({
